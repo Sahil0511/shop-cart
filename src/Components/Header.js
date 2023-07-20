@@ -9,6 +9,7 @@ import {
   Nav,
   Navbar,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -16,7 +17,7 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
         <Container>
           <Navbar.Brand>
-            <a href="/">Shopping cart</a>
+            <Link to="/">Shopping cart</Link>
           </Navbar.Brand>
 
           <Navbar.Text className="search">
@@ -28,7 +29,7 @@ const Header = () => {
           </Navbar.Text>
 
           <Nav>
-            <Dropdown alignRight>
+            <Dropdown align="end">
               <Dropdown.Toggle variant="success">
                 <FaShoppingCart color="white" fontSize="25px" />
                 <Badge bg="success" text="white">
