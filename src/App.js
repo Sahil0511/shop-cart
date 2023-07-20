@@ -1,9 +1,10 @@
 import React from "react";
+import Header from "./Components/Header";
 
 const App = () => {
   return (
     <>
-      <h1>HEllo</h1>
+      <Header />
     </>
   );
 };
