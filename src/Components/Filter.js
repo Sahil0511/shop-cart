@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "./styles.css";
+import Rating from "./Rating";
 
 const Filter = () => {
+  const [rating, setRating] = useState("index");
+
   return (
     <>
       <div className="filters">
         <span className="title">Filter Products</span>
+
         <span>
           <Form.Check
             inline
@@ -25,6 +29,7 @@ const Filter = () => {
             id={`inline-2`}
           />
         </span>
+
         <span>
           <Form.Check
             inline
@@ -34,6 +39,7 @@ const Filter = () => {
             id={`inline-3`}
           />
         </span>
+
         <span>
           <Form.Check
             inline
@@ -42,6 +48,11 @@ const Filter = () => {
             name="group1"
             id={`inline-4`}
           />
+        </span>
+
+        <span>
+          <label>Rating:</label>
+          <Rating rating={rating} onClick={(index) => setRating(index + 1)} />
         </span>
 
         <Button variant="light">Clear Filters</Button>
