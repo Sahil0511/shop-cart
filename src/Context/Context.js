@@ -7,7 +7,7 @@ export const CartItem = createContext();
 faker.seed(100);
 
 const Context = ({ children }) => {
-  const prodArray = [...Array(20)].map(() => ({
+  const prodArray = [...Array(21)].map(() => ({
     id: faker.string.uuid(),
     name: faker.commerce.productName(),
     price: faker.commerce.price({ dec: 0 }),
