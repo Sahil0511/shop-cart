@@ -27,7 +27,7 @@ const SingleProd = ({ prod }) => {
               <Rating rating={prod.rating} />
             </Card.Subtitle>
 
-            {cart.some((c) => c.id === prod.id) ? (
+            {cart.some((p) => p.id === prod.id) ? (
               <Button
                 variant="danger"
                 onClick={() =>

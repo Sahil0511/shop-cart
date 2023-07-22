@@ -8,6 +8,8 @@ const Home = () => {
     state: { products },
   } = CartState();
 
+  // console.log(products, "hello");
+
   return (
     <>
       <div className="home">
