@@ -52,7 +52,7 @@ const Filter = () => {
 
         <span>
           <label>Rating:</label>
-          <Rating rating={rating} onClick={(index) => setRating(index + 1)} />
+          <Rating rating={rating} onSub={setRating} />
         </span>
 
         <Button variant="light">Clear Filters</Button>
