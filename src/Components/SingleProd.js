@@ -24,7 +24,7 @@ const SingleProd = ({ prod }) => {
                 <div>2 days delivery</div>
               )}
 
-              <Rating rating={prod.rating} />
+              <Rating rate={prod.ratings.length} />
             </Card.Subtitle>
 
             {cart.some((p) => p.id === prod.id) ? (
@@ -39,9 +39,9 @@ const SingleProd = ({ prod }) => {
             ) : (
               <Button
                 onClick={() => dispatch({ type: "ADD_TO_CART", payload: prod })}
-                disabled={!prod.inStock}
+                disabled={!prod.inStock.length}
               >
-                {!prod.inStock ? "Out of Stock" : "Add to Cart"}
+                {prod.inStock.length === 0 ? "Out of Stock" : "Add to Cart"}
               </Button>
             )}
           </Card.Body>

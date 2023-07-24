@@ -12,9 +12,9 @@ const Context = ({ children }) => {
     name: faker.commerce.productName(),
     price: faker.commerce.price({ dec: 0 }),
     image: faker.image.url(),
-    inStock: faker.helpers.arrayElements([0, 2, 4, 6, 8]),
+    inStock: faker.helpers.arrayElements([0, 2, 4, 6, 8], { min: 0, max: 3 }),
     fastDelivery: faker.datatype.boolean(),
-    rating: faker.helpers.arrayElements([1, 2, 3, 4, 5]),
+    ratings: faker.helpers.arrayElements([1, 2, 3, 4, 5], { min: 1, max: 5 }),
   }));
 
   const [state, dispatch] = useReducer(cartReducer, {

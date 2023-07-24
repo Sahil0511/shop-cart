@@ -2,16 +2,17 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import React from "react";
 
-const Rating = ({ rating, onSub }) => {
+const Rating = ({ rate, onClick, style }) => {
   return (
     <>
       {[...Array(5)].map((_, index) => (
         <span
+          disabled
           key={index}
-          onClick={() => onSub(index + 1)}
-          style={{ cursor: "pointer" }}
+          onClick={() => onClick && onClick(index)}
+          style={style}
         >
-          {rating > index ? <AiFillStar /> : <AiOutlineStar />}
+          {rate > index ? <AiFillStar /> : <AiOutlineStar />}
         </span>
       ))}
     </>

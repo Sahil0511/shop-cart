@@ -4,7 +4,7 @@ import "./styles.css";
 import Rating from "./Rating";
 
 const Filter = () => {
-  const [rating, setRating] = useState("index");
+  const [rate, setRate] = useState("");
 
   return (
     <>
@@ -52,7 +52,11 @@ const Filter = () => {
 
         <span>
           <label>Rating:</label>
-          <Rating rating={rating} onSub={setRating} />
+          <Rating
+            rate={rate}
+            onClick={(index) => setRate(index + 1)}
+            style={{ cursor: "pointer" }}
+          />
         </span>
 
         <Button variant="light">Clear Filters</Button>

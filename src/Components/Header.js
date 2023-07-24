@@ -10,8 +10,13 @@ import {
   Navbar,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { CartState } from "../context/Context";
 
 const Header = () => {
+  const {
+    state: { cart },
+  } = CartState();
+
   return (
     <>
       <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
@@ -33,12 +38,16 @@ const Header = () => {
               <Dropdown.Toggle variant="success">
                 <FaShoppingCart color="white" fontSize="25px" />
                 <Badge bg="success" text="white">
-                  {10}
+                  {cart.length}
                 </Badge>
               </Dropdown.Toggle>
 
               <Dropdown.Menu style={{ minWidth: 370 }}>
-                <span style={{ padding: 10 }}>Hello World</span>
+                {cart.length > 0 ? (
+                  <></>
+                ) : (
+                  <span style={{ padding: 10 }}>Cart is Empty</span>
+                )}
               </Dropdown.Menu>
             </Dropdown>
           </Nav>

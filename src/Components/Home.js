@@ -9,7 +9,7 @@ const Home = () => {
   } = CartState();
 
   // console.log(products, "hello");
-
+  console.log(products);
   return (
     <>
       <div className="home">
