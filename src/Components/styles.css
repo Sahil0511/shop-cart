@@ -51,3 +51,8 @@
   padding: 0 20px;
   flex-direction: column;
 }
+
+/* CART SUMMARY */
+.summary {
+  width: 30%;
+}

@@ -4,6 +4,7 @@ import React from "react";
 import "../index.css";
 import {
   Badge,
+  Button,
   Container,
   Dropdown,
   FormControl,
@@ -76,6 +77,12 @@ const Header = () => {
                 ) : (
                   <span style={{ padding: 10 }}>Cart is Empty</span>
                 )}
+
+                <Link to="/cart">
+                  <Button style={{ width: "95%", margin: "0 10px" }}>
+                    Go To Cart
+                  </Button>
+                </Link>
               </Dropdown.Menu>
             </Dropdown>
           </Nav>
