@@ -1,3 +1,4 @@
+import { AiFillDelete } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import React from "react";
 import "../index.css";
@@ -15,6 +16,7 @@ import { CartState } from "../context/Context";
 const Header = () => {
   const {
     state: { cart },
+    dispatch,
   } = CartState();
 
   return (
@@ -44,7 +46,33 @@ const Header = () => {
 
               <Dropdown.Menu style={{ minWidth: 370 }}>
                 {cart.length > 0 ? (
-                  <></>
+                  <>
+                    {cart.map((prod) => (
+                      <span className="cartitem" key={prod.id}>
+                        <img
+                          src={prod.image}
+                          className="cartItemImg"
+                          alt={prod.name}
+                        />
+                        <div className="cartItemDetail">
+                          <span>{prod.name}</span>
+                          <span>Rs.{prod.price}</span>
+                        </div>
+
+                        <AiFillDelete
+                          fontSize="20px"
+                          color="red"
+                          style={{ cursor: "pointer" }}
+                          onClick={() =>
+                            dispatch({
+                              type: "REMOVE_FROM_CART",
+                              payload: prod,
+                            })
+                          }
+                        />
+                      </span>
+                    ))}
+                  </>
                 ) : (
                   <span style={{ padding: 10 }}>Cart is Empty</span>
                 )}

@@ -54,7 +54,7 @@ const Filter = () => {
           <label>Rating:</label>
           <Rating
             rate={rate}
-            onClick={(index) => setRate(index + 1)}
+            onSub={(index) => setRate(index + 1)}
             style={{ cursor: "pointer" }}
           />
         </span>
