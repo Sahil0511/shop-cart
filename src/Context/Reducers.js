@@ -35,7 +35,17 @@ export const cartReducer = (state, action) => {
           }),
         ],
       };
-
+    case "PRICE_QUANTITY":
+      return {
+        ...state,
+        cart: [
+          ...state.cart.map((item) => {
+            return item.qty > 1
+              ? item.qty * Number(action.payload.price)
+              : item;
+          }),
+        ],
+      };
     default:
       return state;
   }
