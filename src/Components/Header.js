@@ -16,6 +16,11 @@ import { CartState } from "../context/Context";
 
 const Header = () => {
   const {
+    filterState: { searchText },
+    filterDispatch,
+  } = CartState();
+
+  const {
     state: { cart },
     dispatch,
   } = CartState();
@@ -33,6 +38,13 @@ const Header = () => {
               style={{ width: 400 }}
               placeholder="Search Product"
               className="m-auto"
+              onChange={(e) =>
+                filterDispatch({
+                  type: "FILTER_SEARCH",
+                  payload: e.target.value,
+                })
+              }
+              checked={searchText}
             ></FormControl>
           </Navbar.Text>
 

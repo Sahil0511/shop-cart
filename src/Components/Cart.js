@@ -1,10 +1,10 @@
 import { AiFillDelete } from "react-icons/ai";
 import React, { useState, useEffect } from "react";
 import { CartState } from "../context/Context";
+import Quantity from "./Quantity";
 import {
   Button,
   Col,
-  FormControl,
   Image,
   ListGroup,
   ListGroupItem,
@@ -45,11 +45,11 @@ const Cart = () => {
                     <Rating rate={prod.ratings.length} />
                   </Col>
                   <Col md={2}>
-                    <FormControl as="select" value={prod.qty}>
-                      {[...Array(prod.inStock.length).keys()].map((i) => (
-                        <option key={i + 1}>{i + 1}</option>
-                      ))}
-                    </FormControl>
+                    <Quantity
+                      prod={prod}
+                      quantity={prod.qty}
+                      inStock={prod.inStock[0]}
+                    />
                   </Col>
                   <Col>
                     <Button

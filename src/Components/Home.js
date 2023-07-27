@@ -6,16 +6,51 @@ import SingleProd from "./SingleProd";
 const Home = () => {
   const {
     state: { products },
+    filterState: {
+      filterStock,
+      filterFastDelivery,
+      filterRatings,
+      sort,
+      searchText,
+    },
   } = CartState();
 
-  // console.log(products, "hello");
-  console.log(products);
+  const newProducts = () => {
+    let filteredProd = products;
+    if (sort) {
+      filteredProd = filteredProd.sort((a, b) =>
+        sort === "lowToHigh" ? a.price - b.price : b.price - a.price
+      );
+    }
+
+    if (!filterStock) {
+      filteredProd = filteredProd.filter((prod) => prod.inStock[0]);
+    }
+
+    if (filterFastDelivery) {
+      filteredProd = filteredProd.filter((prod) => prod.fastDelivery);
+    }
+
+    if (filterRatings) {
+      filteredProd = filteredProd.filter(
+        (prod) => prod.ratings.length >= filterRatings
+      );
+    }
+
+    if (searchText) {
+      filteredProd = filteredProd.filter((prod) =>
+        prod.name.toLowerCase().includes(searchText)
+      );
+    }
+
+    return filteredProd;
+  };
   return (
     <>
       <div className="home">
         <Filter />
         <div className="productContainer">
-          {products.map((prod) => (
+          {newProducts().map((prod) => (
             <SingleProd prod={prod} key={prod.id} />
           ))}
         </div>
