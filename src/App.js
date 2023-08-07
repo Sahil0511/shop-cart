@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./components/Header";
+import Header from "./Components/Header";
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import Cart from "./components/Cart";
+import Home from "./Components/Home";
+import Cart from "./Components/Cart";
 
 const App = () => {
   return (

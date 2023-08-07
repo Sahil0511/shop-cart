@@ -1,6 +1,6 @@
 import { AiFillDelete } from "react-icons/ai";
 import React, { useState, useEffect } from "react";
-import { CartState } from "../context/Context";
+import { CartState } from "../Context/Context";
 import Quantity from "./Quantity";
 import {
   Button,
@@ -21,7 +21,12 @@ const Cart = () => {
   const [total, setTotal] = useState();
 
   useEffect(() => {
-    setTotal(cart.reduce((acc, currElem) => acc + Number(currElem.price), 0));
+    setTotal(
+      cart.reduce(
+        (acc, currElem) => acc + Number(currElem.price * currElem.qty),
+        0
+      )
+    );
   }, [cart]);
 
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form } from "react-bootstrap";
 import "./styles.css";
 import Rating from "./Rating";
-import { CartState } from "../context/Context";
+import { CartState } from "../Context/Context";
 
 const Filter = () => {
   const {

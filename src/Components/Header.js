@@ -12,7 +12,7 @@ import {
   Navbar,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CartState } from "../context/Context";
+import { CartState } from "../Context/Context";
 
 const Header = () => {
   const {

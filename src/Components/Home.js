@@ -1,5 +1,5 @@
 import React from "react";
-import { CartState } from "../context/Context";
+import { CartState } from "../Context/Context";
 import Filter from "./Filter";
 import SingleProd from "./SingleProd";
 
@@ -50,8 +50,8 @@ const Home = () => {
       <div className="home">
         <Filter />
         <div className="productContainer">
-          {newProducts().map((prod) => (
-            <SingleProd prod={prod} key={prod.id} />
+          {newProducts().map((prod, key) => (
+            <SingleProd prod={prod} key={key} />
           ))}
         </div>
       </div>
