@@ -20,11 +20,7 @@ const Quantity = ({ quantity, prod }) => {
         >
           <AiFillMinusCircle />
         </Button>
-        <span
-          onChange={() => dispatch({ type: "PRICE_QUANTITY", payload: prod })}
-        >
-          {quantity}
-        </span>
+        <span>{quantity}</span>
         <Button
           style={{ margin: "10px" }}
           onClick={() =>
